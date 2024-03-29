@@ -3,10 +3,26 @@ import { useDateStore } from '@/zustandStores/DateStore'
 import { TableHeader } from '@/components/TableHeader'
 import { HabitRow } from '@/components/HabitRow'
 import { subDays } from 'date-fns'
+import { useEffect } from 'react'
 
 export default function HabitTable() {
 
-  const [habits] = useHabitStore((state) => [state.habits])
+  const [habits, setHabits] = useHabitStore((state) => [state.habits, state.setHabits])
+
+  // load habits from local storage
+  useEffect(() => {
+    const localStorageHabits = localStorage.getItem('habits')
+    if (localStorageHabits) {
+      setHabits(JSON.parse(localStorageHabits))
+    }
+  }, [])
+
+  // update habits in local storage when habits state is changed
+  useEffect(() => {
+    if (habits) {
+      localStorage.setItem('habits', JSON.stringify(habits))
+    }
+  }, [habits])
 
   const [startDate, numberOfDays] = useDateStore((state) => [
     state.startDate, state.numberOfDays

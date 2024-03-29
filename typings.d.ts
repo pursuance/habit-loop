@@ -12,6 +12,7 @@ interface Habit {
 }
 
 interface HabitsState {
-  habits: habit[] | null;
+  habits: Habit[] | null;
+  setHabits: (habits: Habit[]) => void;
   updateHabit: (updatedHabit: Habit) => void;
 }
