@@ -1,7 +1,11 @@
 import { Checkbox } from '@/components/ui/checkbox'
 import { useHabitStore } from '@/zustandStores/HabitStore'
-import { useDateStore } from '@/zustandStores/DateStore'
 import { isSameDay } from 'date-fns'
+import { HabitOptions } from '@/components/HabitOptions'
+import { ChangeHabitNameField } from '@/components/ChangeHabitNameField';
+import { Button } from '@/components/ui/button';
+import { Grip } from 'lucide-react';
+import { useSortable } from '@dnd-kit/sortable';
 
 interface RowProps {
   habit: Habit;
@@ -14,14 +18,11 @@ interface SquareProps {
 
 export function HabitRow({ habit, dateList }: RowProps) {
 
-  const { id, name} = habit
-  let { datesCompleted } = habit
+  let { id, name, datesCompleted, editable } = habit
   
   const [updateHabit] = useHabitStore((state) => [state.updateHabit])
 
-  const [startDate, numberOfDays] = useDateStore((state) => [
-    state.startDate, state.numberOfDays
-  ])
+  const { attributes, listeners } = useSortable({ id })
 
   const HabitSquare = ({ date }: SquareProps) => {
 
@@ -59,10 +60,19 @@ export function HabitRow({ habit, dateList }: RowProps) {
 
   return (
     <>
-      <div>dnd</div>
-      <div>{name}</div>
+      <div>
+        <Button variant='ghost' className='h-8 w-8 p-0' {...attributes} {...listeners}>
+          <Grip className='h-4 w-4' />
+        </Button>
+      </div>
+      <div>
+        {
+          editable?
+          <ChangeHabitNameField habit={habit} /> : name
+        }
+      </div>
       <HabitSquares />
-      <div>options</div>
+      <div><HabitOptions habit={habit} /></div>
     </>
   )
 }

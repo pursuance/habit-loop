@@ -10,5 +10,20 @@ export const useHabitStore = create<HabitsState>((set) => ({
       } else return habit
     })
     return ({ habits: updatedHabits })
+  }),
+  addHabit: () => set((state) => {
+    const newHabit = {
+      id: crypto.randomUUID(),
+      name: '',
+      datesCompleted: [],
+      editable: true
+    }
+    let habits
+    if (state.habits) {
+      habits = [...state.habits, newHabit]
+    } else { 
+      habits = [newHabit]
+    }
+    return ({ habits })
   })
 }))
