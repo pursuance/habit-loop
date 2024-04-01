@@ -1,9 +1,8 @@
 import { HabitRow } from '@/components/HabitRow'
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from "@dnd-kit/core"
-import { arrayMove, SortableContext, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable'
 import { restrictToVerticalAxis, restrictToWindowEdges } from "@dnd-kit/modifiers"
 import { useHabitStore } from '@/zustandStores/HabitStore'
-import { CSS } from '@dnd-kit/utilities'
 
 interface Props {
   dateList: Date[];
@@ -31,31 +30,19 @@ export function HabitTableBody({ dateList }: Props) {
   }
   
 
-  const HabitRows = () => {
-    return(
+  const HabitRows = () => (
       <>
-        {habits?.map((habit) => {
-          const { id } = habit
-          const { setNodeRef, transform, transition } = useSortable({ id })
-          const draggableStyle = {
-            transform: CSS.Transform.toString(transform),
-            transition
-          }
+        {habits?.map((habit) => {          
           return (
             <HabitRow 
               key={habit.id}
               habit={habit}
               dateList={dateList}
-              ref={setNodeRef}
-              style={draggableStyle}
             />
           )
         })}
       </>
     )
-  }
-
-  
 
   return (
     <>

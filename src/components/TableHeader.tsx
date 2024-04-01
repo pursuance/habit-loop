@@ -21,11 +21,11 @@ export function TableHeader({ dateList }: Props) {
   }
 
   return (
-    <>
+    <div className='flex'>
       <div>dnd</div>
       <div>name</div>
       <Dates />
       <div>options</div>
-    </>
+    </div>
   )
 }
