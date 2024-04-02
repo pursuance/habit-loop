@@ -1,4 +1,7 @@
-import { format } from 'date-fns'
+import { format, isToday } from 'date-fns'
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useDateStore } from '@/zustandStores/DateStore';
 
 interface Props {
   dateList: Date[];
@@ -7,6 +10,8 @@ interface Props {
 export function TableHeader({ dateList }: Props) {
 
   const formatDate = (date: Date) => format(date, 'EEE do')
+
+  const [goBackADay, goForwardADay] = useDateStore((state) => [state.goBackADay, state.goForwardADay])
 
   const Dates = () => {
     return (
@@ -23,9 +28,22 @@ export function TableHeader({ dateList }: Props) {
   return (
     <div className='flex'>
       <div>dnd</div>
-      <div>name</div>
+      <div>
+        name
+        {isToday(dateList[0]) ?
+          <div className='h-8 w-8 p-0'></div>
+          :
+          <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goForwardADay}>
+            <ChevronLeft className='h-4 w-4' />
+          </Button>
+        }
+      </div>
       <Dates />
-      <div>options</div>
+      <div>
+        <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goBackADay}>
+          <ChevronRight className='h-4 w-4' />
+        </Button>
+      </div>
     </div>
   )
 }

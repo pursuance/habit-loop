@@ -1,6 +1,8 @@
 interface DateState {
   startDate: Date;
   numberOfDays: number;
+  goBackADay: () => void;
+  goForwardADay: () => void;
 }
 
 interface Habit {
