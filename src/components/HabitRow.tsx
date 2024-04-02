@@ -19,7 +19,7 @@ interface SquareProps {
 
 export function HabitRow({ habit, dateList }: RowProps) {
 
-  let { id, name, datesCompleted, editable } = habit
+  const { id, name, datesCompleted, editable } = habit
   
   const [updateHabit] = useHabitStore((state) => [state.updateHabit])
 
@@ -40,12 +40,13 @@ export function HabitRow({ habit, dateList }: RowProps) {
     }
 
     const handleCheckedChange = (checked: boolean) => {
+      let newDatesCompleted
       checked?
-        datesCompleted = [date, ...datesCompleted]
+        newDatesCompleted = [date, ...datesCompleted]
         :
-        datesCompleted = datesCompleted.filter(dateCompleted => !isSameDay(date, dateCompleted))
+        newDatesCompleted = datesCompleted.filter(dateCompleted => !isSameDay(date, dateCompleted))
 
-      const updatedHabit = {...habit, datesCompleted}
+      const updatedHabit = {...habit, datesCompleted: newDatesCompleted}
       updateHabit(updatedHabit)
     }
 
