@@ -2,6 +2,7 @@ import { format, isToday } from 'date-fns'
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useDateStore } from '@/zustandStores/DateStore';
+import { ReturnToTodayButton } from '@/components/ReturnToTodayButton';
 
 interface Props {
   dateList: Date[];
@@ -30,6 +31,7 @@ export function TableHeader({ dateList }: Props) {
       <div>dnd</div>
       <div>
         name
+        <ReturnToTodayButton />
         {isToday(dateList[0]) ?
           <div className='h-8 w-8 p-0'></div>
           :

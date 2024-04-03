@@ -3,6 +3,7 @@ interface DateState {
   numberOfDays: number;
   goBackADay: () => void;
   goForwardADay: () => void;
+  goToToday: () => void;
 }
 
 interface Habit {
