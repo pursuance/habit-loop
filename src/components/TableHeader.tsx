@@ -10,8 +10,6 @@ interface Props {
 
 export function TableHeader({ dateList }: Props) {
 
-  const formatDate = (date: Date) => format(date, 'EEE do')
-
   const [goBackADay, goForwardADay] = useDateStore((state) => [state.goBackADay, state.goForwardADay])
 
   const Dates = () => {
@@ -19,7 +17,10 @@ export function TableHeader({ dateList }: Props) {
       <>
         {
           dateList.map((date, index) => 
-            <div key={index}>{formatDate(date)}</div>
+            <div className='check-column flex flex-col' key={index}>
+              <div>{format(date, 'E')}</div>
+              <div>{format(date, 'd')}</div>
+            </div>
           )
         }
       </>
@@ -28,8 +29,8 @@ export function TableHeader({ dateList }: Props) {
 
   return (
     <div className='flex'>
-      <div>dnd</div>
-      <div>
+      <div className='w-8'></div>
+      <div className='name-column flex'>
         name
         <ReturnToTodayButton />
         {isToday(dateList[0]) ?

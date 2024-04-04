@@ -51,7 +51,7 @@ export function HabitRow({ habit, dateList }: RowProps) {
     }
 
     return (
-      <div>
+      <div className='check-column pl-4'>
         <Checkbox className='h-7 w-7' checked={isCompleted()} onCheckedChange={handleCheckedChange} />
       </div>
     )
@@ -72,7 +72,7 @@ export function HabitRow({ habit, dateList }: RowProps) {
           <Grip className='h-4 w-4' />
         </Button>
       </div>
-      <div>
+      <div className='name-column'>
         {
           editable?
           <ChangeHabitNameField habit={habit} /> : name

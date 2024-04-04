@@ -74,3 +74,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.name-column {
+  width: 100px;
+}
+
+.check-column {
+  width: 60px;
+  align-items: center;
+}
