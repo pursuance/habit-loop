@@ -33,12 +33,12 @@ export default function HabitTable() {
   )
 
   return(
-    <>
+    <div className='flex flex-col items-center w-4/6 mx-auto mt-10 border rounded-2xl'>
       <div className='flex flex-col'>
         <TableHeader dateList={dateList} />
         <HabitTableBody dateList={dateList} />
       </div>
       <AddHabitRow />
-    </>
+    </div>
   )
 }
