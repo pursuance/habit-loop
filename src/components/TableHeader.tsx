@@ -28,8 +28,8 @@ export function TableHeader({ dateList }: Props) {
   }
 
   return (
-    <div className='flex'>
-      <div className='w-8'></div>
+    <div className='flex border-b pb-2'>
+      {/* <div className='w-8'></div> */}
       <div className='name-column flex'>
         name
         <ReturnToTodayButton />

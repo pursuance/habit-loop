@@ -66,8 +66,8 @@ export function HabitRow({ habit, dateList }: RowProps) {
   }
 
   return (
-    <div className='flex' ref={setNodeRef} style={draggableStyle}>
-      <div>
+    <div className='flex items-center border-b py-2 relative' ref={setNodeRef} style={draggableStyle}>
+      <div className='absolute -left-8'>
         <Button variant='ghost' className='h-8 w-8 p-0' {...attributes} {...listeners}>
           <Grip className='h-4 w-4' />
         </Button>
