@@ -28,18 +28,19 @@ export function TableHeader({ dateList }: Props) {
   }
 
   return (
-    <div className='flex border-b pb-2'>
-      {/* <div className='w-8'></div> */}
-      <div className='name-column flex'>
-        name
-        <ReturnToTodayButton />
-        {isToday(dateList[0]) ?
-          <div className='h-8 w-8 p-0'></div>
-          :
-          <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goForwardADay}>
-            <ChevronLeft className='h-4 w-4' />
-          </Button>
-        }
+    <div className='flex border-b py-2 items-center'>
+      <div className='name-column flex justify-between'>
+        Habit
+        <div className='flex'>
+          <ReturnToTodayButton />
+          {isToday(dateList[0]) ?
+            <div className='h-8 w-8 p-0'></div>
+            :
+            <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goForwardADay}>
+              <ChevronLeft className='h-4 w-4' />
+            </Button>
+          }
+        </div>
       </div>
       <Dates />
       <div>
