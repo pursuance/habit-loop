@@ -12,7 +12,7 @@ export function AddHabitRow() {
 
   return (
     <div className="w-full">
-      <Button variant='ghost' className="gap-2 h-16 w-full rounded-b-2xl justify-start" onClick={handleClick}>
+      <Button variant='ghost' className="gap-2 h-16 w-full rounded-b-2xl justify-start px-6" onClick={handleClick}>
         <PlusCircle />Add a Habit
       </Button>
     </div>

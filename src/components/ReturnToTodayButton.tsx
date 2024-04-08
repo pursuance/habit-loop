@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ChevronFirst } from "lucide-react";
 
 export function ReturnToTodayButton() {
-  const [startDate, numberOfDays, goToToday] = useDateStore((state) => [
-    state.startDate, state.numberOfDays, state.goToToday
+  const [startDate, goToToday] = useDateStore((state) => [
+    state.startDate, state.goToToday
   ])
 
   const today = new Date()
 
-  const appearanceDate = subDays(today, numberOfDays + 1)
+  const appearanceDate = subDays(today, 2)
 
   return (
     <>

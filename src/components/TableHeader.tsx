@@ -30,7 +30,7 @@ export function TableHeader({ dateList }: Props) {
   return (
     <div className='flex border-b py-2 items-center'>
       <div className='name-column flex justify-between'>
-        Habit
+        <span className='font-semibold'>Habit</span>
         <div className='flex'>
           <ReturnToTodayButton />
           {isToday(dateList[0]) ?

@@ -76,7 +76,8 @@
 }
 
 .name-column {
-  width: 350px;
+  min-width: 300px;
+  
 }
 
 .check-column {
