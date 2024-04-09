@@ -20,7 +20,7 @@ export default function HabitTable() {
   const { width } = useWindowSize()
 
   useLayoutEffect(() => {
-    setNumberOfDays(Math.round(width / 100))
+    setNumberOfDays(Math.round(width / 110))
   }, [width])
 
   // load habits from local storage
@@ -47,6 +47,7 @@ export default function HabitTable() {
         <HabitTableBody dateList={dateList} />
       </div>
       <AddHabitRow />
+      {numberOfDays}
     </div>
   )
 }

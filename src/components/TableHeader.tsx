@@ -1,16 +1,13 @@
 import { format, isToday } from 'date-fns'
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useDateStore } from '@/zustandStores/DateStore';
 import { ReturnToTodayButton } from '@/components/ReturnToTodayButton';
+import { GoBackADayButton } from '@/components/GoBackADayButton';
+import { GoForwardADayButton } from '@/components/GoForwardADayButton';
 
 interface Props {
   dateList: Date[];
 }
 
 export function TableHeader({ dateList }: Props) {
-
-  const [goBackADay, goForwardADay] = useDateStore((state) => [state.goBackADay, state.goForwardADay])
 
   const Dates = () => {
     return (
@@ -29,24 +26,18 @@ export function TableHeader({ dateList }: Props) {
 
   return (
     <div className='flex border-b py-2 items-center'>
-      <div className='name-column flex justify-between'>
+      <div className='name-column mr-auto'>
         <span className='font-semibold'>Habit</span>
-        <div className='flex'>
-          <ReturnToTodayButton />
-          {isToday(dateList[0]) ?
-            <div className='h-8 w-8 p-0'></div>
-            :
-            <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goForwardADay}>
-              <ChevronLeft className='h-4 w-4' />
-            </Button>
-          }
-        </div>
       </div>
-      <Dates />
-      <div>
-        <Button asChild variant='ghost' className='h-8 w-8 p-0' onClick={goBackADay}>
-          <ChevronRight className='h-4 w-4' />
-        </Button>
+      <ReturnToTodayButton />
+      {isToday(dateList[0]) ?
+        <div className='h-8 w-8 p-0'></div>
+        :
+        <GoBackADayButton />
+      }
+      <div className='flex items-center'> 
+        <Dates />
+        <GoForwardADayButton />
       </div>
     </div>
   )

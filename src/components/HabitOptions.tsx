@@ -34,28 +34,30 @@ export function HabitOptions({ habit }: Props) {
   }
 
   return (
-    <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button variant="ghost" className="h-8 w-8 p-0">
-        <span className="sr-only">Open menu</span>
-        <MoreVertical className="h-4 w-4" />
-      </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent>
-    <DropdownMenuItem onClick={makeEditable} className="cursor-pointer">
-        <span className="flex items-center">
-          <Pencil className="h-4 w-4 mr-1"/>
-          <span className="text-gray-300 mr-1">|</span> Rename
-        </span>
-      </DropdownMenuItem>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem onClick={() => deleteHabit(id)} className="cursor-pointer">
-        <span className="text-red-700 flex items-center">
-          <Trash className="red h-4 w-4 mr-1"/>
-          <span className="text-gray-300 mr-1">|</span> Delete
-        </span>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
+    <div>
+      <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="h-8 w-8 p-0">
+          <span className="sr-only">Open menu</span>
+          <MoreVertical className="h-4 w-4" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
+      <DropdownMenuItem onClick={makeEditable} className="cursor-pointer">
+          <span className="flex items-center">
+            <Pencil className="h-4 w-4 mr-1"/>
+            <span className="text-gray-300 mr-1">|</span> Rename
+          </span>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={() => deleteHabit(id)} className="cursor-pointer">
+          <span className="text-red-700 flex items-center">
+            <Trash className="red h-4 w-4 mr-1"/>
+            <span className="text-gray-300 mr-1">|</span> Delete
+          </span>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  </div>
   )
 }
