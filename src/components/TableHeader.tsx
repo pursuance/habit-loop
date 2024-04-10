@@ -1,4 +1,4 @@
-import { format, isToday } from 'date-fns'
+import { format } from 'date-fns'
 import { ReturnToTodayButton } from '@/components/ReturnToTodayButton';
 import { GoBackADayButton } from '@/components/GoBackADayButton';
 import { GoForwardADayButton } from '@/components/GoForwardADayButton';
@@ -25,20 +25,21 @@ export function TableHeader({ dateList }: Props) {
   }
 
   return (
-    <div className='flex border-b py-2 items-center'>
-      <div className='name-column mr-auto'>
+    <div className='flex border-b py-2'>
+
+      <div className='name-column flex items-center justify-between'>
         <span className='font-semibold'>Habit</span>
+        <div className='flex'>
+          <ReturnToTodayButton />
+          <GoBackADayButton />
+        </div>
       </div>
-      <ReturnToTodayButton />
-      {isToday(dateList[0]) ?
-        <div className='h-8 w-8 p-0'></div>
-        :
-        <GoBackADayButton />
-      }
+      
       <div className='flex items-center'> 
         <Dates />
         <GoForwardADayButton />
       </div>
+      
     </div>
   )
 }
