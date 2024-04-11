@@ -47,7 +47,6 @@ export default function HabitTable() {
         <HabitTableBody dateList={dateList} />
       </div>
       <AddHabitRow />
-      {numberOfDays}
     </div>
   )
 }
