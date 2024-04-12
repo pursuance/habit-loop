@@ -20,7 +20,10 @@ export default function HabitTable() {
   const { width } = useWindowSize()
 
   useLayoutEffect(() => {
-    setNumberOfDays(Math.round(width / 110))
+    const newNumberOfDays = Math.round(width / 108)
+    if (newNumberOfDays >= 7) {
+      setNumberOfDays(newNumberOfDays)
+    }
   }, [width])
 
   // load habits from local storage
@@ -41,7 +44,7 @@ export default function HabitTable() {
   
 
   return(
-    <div className='flex flex-col items-center w-5/6 mx-auto mt-10 border border-gray-400 rounded-2xl'>
+    <div className='flex flex-col items-center w-5/6 mx-auto mt-10 border border-gray-400 rounded-2xl min-w-fit'>
       <div className='flex flex-col w-full px-14'>
         <TableHeader dateList={dateList} />
         <HabitTableBody dateList={dateList} />
