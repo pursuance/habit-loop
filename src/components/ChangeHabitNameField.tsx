@@ -43,14 +43,14 @@ export function ChangeHabitNameField({ habit }: Props) {
   return (
     <Form {...form}>
       <form  onSubmit={form.handleSubmit(onSubmit)}>
-        <div className="flex ">
+        <div className="flex items-center">
           <FormField
             control={form.control}
             name='name'
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Enter habit name..." {...field} className=""/>
+                  <Input placeholder="Enter habit name..." {...field} className="text-base px-2"/>
                 </FormControl>
               </FormItem>
             )}

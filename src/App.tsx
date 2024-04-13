@@ -1,7 +1,12 @@
-import HabitTable from '@/components/HabitTable'
+import { HabitTable } from '@/components/HabitTable'
+import { Header } from '@/components/Header'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export default function App() {
   return (
-    <HabitTable />
+    <ThemeProvider>
+      <Header />
+      <HabitTable />
+    </ThemeProvider>
   )
 }
