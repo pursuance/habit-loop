@@ -6,7 +6,7 @@ import { useEffect, useLayoutEffect } from 'react'
 import { AddHabitRow } from '@/components/AddHabitRow'
 import { HabitTableBody } from '@/components/HabitTableBody'
 import { useWindowSize } from 'usehooks-ts'
-import { FirstHabitButton } from '@/components/FirstHabitButton'
+import { LandingPage } from '@/components/LandingPage'
 
 export function HabitTable() {
 
@@ -44,7 +44,7 @@ export function HabitTable() {
 
   if (!habits || habits.length === 0) {
     return(
-      <FirstHabitButton />
+      <LandingPage />
     )
   } else {
     return (
