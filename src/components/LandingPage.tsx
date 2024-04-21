@@ -5,7 +5,7 @@ export function LandingPage() {
   return (
     <div className="flex justify-center mt-16">
       <FirstHabitButton />
-      <div className="h-48">
+      <div className="w-72">
         <HabitLoopCodeBlock />
       </div>
     </div>
