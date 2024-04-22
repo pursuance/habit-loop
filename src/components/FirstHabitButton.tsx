@@ -10,7 +10,7 @@ export function FirstHabitButton() {
     <Button 
       onClick={() => addHabit()} 
       variant='outline' 
-      className="flex flex-col h-44 w-72 gap-6 rounded-none"
+      className="flex flex-col h-44 w-72 gap-6 rounded-small"
     >
       <CirclePlus className="h-16 w-16" />
       Click Here to start tracking your first habit
