@@ -7,7 +7,7 @@ export function LandingPage() {
       <h1 className="font-bold text-4xl">Welcome to Habit Loop!</h1>
       <div className="flex justify-center mt-16 gap-2">
         <FirstHabitButton />
-        <div className="w-72">
+        <div>
           <HabitLoopCodeBlock />
         </div>
       </div>

@@ -4,16 +4,18 @@ export function HabitLoopCodeBlock() {
 
   const text = 
   `
-    for (const habit of habits) {
-      //Get 1% better every day!
-      habit += 0.01 * habit
+    const habitLoop = (habits: DailyHabits[]) => { 
+      return habits.map((habit) => habit + (habit * 0.01))
     }
+
+    //Get 1% Better Every Day!
+    setTimeout(habitLoop, Every Day!)
   `
 
   return (
     <CodeBlock 
       text={text}
-      language='javascript'
+      language='tsx'
       theme={dracula}
       showLineNumbers={false}
     />
