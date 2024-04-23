@@ -8,7 +8,7 @@ export function Header() {
       Habit Loop
       <div className="flex items-center gap-2"> 
         <Button asChild variant='outline' size='icon'>
-          <a href="https://github.com/pursuance/habit-loop">
+          <a href="https://github.com/pursuance/habit-loop" target="_blank">
             <Github />
           </a>
         </Button>
