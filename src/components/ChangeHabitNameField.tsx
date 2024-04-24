@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useHabitStore } from "@/zustandStores/HabitStore"
 import { Button } from "./ui/button";
 import { Ban, Check } from "lucide-react";
+import { useEffect } from "react";
 
 interface Props {
   habit: Habit;
@@ -13,7 +14,7 @@ interface Props {
 
 export function ChangeHabitNameField({ habit }: Props) {
 
-  const { name } = habit
+  const { name, id } = habit
 
   const [updateHabit] = useHabitStore((state) => [
     state.updateHabit
@@ -40,6 +41,14 @@ export function ChangeHabitNameField({ habit }: Props) {
     updateHabit(updatedHabit)
   }
 
+  useEffect(() => {
+    const input = document.getElementById(id) as HTMLInputElement
+    if (input) {
+      input.focus()
+      input.select()
+    }
+  }, [])
+
   return (
     <Form {...form}>
       <form  onSubmit={form.handleSubmit(onSubmit)}>
@@ -50,7 +59,7 @@ export function ChangeHabitNameField({ habit }: Props) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Enter habit name..." {...field} className="text-base px-2"/>
+                  <Input id={id} placeholder="Enter habit name..." {...field} className="text-base px-2"/>
                 </FormControl>
               </FormItem>
             )}
