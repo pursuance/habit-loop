@@ -67,12 +67,6 @@
   }
 }
 
-.name-column {
-  min-width: 300px;
-  max-width: 400px;
-  flex-grow: 1;
-}
-
 .check-column {
   width: 60px;
   align-items: center;

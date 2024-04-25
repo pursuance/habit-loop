@@ -27,7 +27,7 @@ export function TableHeader({ dateList }: Props) {
   return (
     <div className='flex border-b py-2'>
 
-      <div className='name-column flex items-center'>
+      <div className='grow md:w-[280px] flex items-center'>
         <span className='font-semibold mr-auto'>Habit</span>
         <ReturnToTodayButton />
         <GoBackADayButton />

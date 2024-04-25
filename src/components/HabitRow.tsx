@@ -73,7 +73,7 @@ export function HabitRow({ habit, dateList }: RowProps) {
         </Button>
       </div>
 
-      <div className='name-column'>
+      <div className='grow md:w-[280px]'>
         {
           editable?
           <ChangeHabitNameField habit={habit} /> : name
