@@ -2,7 +2,7 @@ import { useHabitStore } from '@/zustandStores/HabitStore'
 import { useDateStore } from '@/zustandStores/DateStore'
 import { TableHeader } from '@/components/TableHeader'
 import { subDays } from 'date-fns'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { AddHabitRow } from '@/components/AddHabitRow'
 import { HabitTableBody } from '@/components/HabitTableBody'
 import { useWindowSize } from 'usehooks-ts'
@@ -19,14 +19,13 @@ export function HabitTable() {
   )
 
   const { width } = useWindowSize()
-  const [mobile, setMobile] = useState(false)
 
   useLayoutEffect(() => {
     const newNumberOfDays = Math.round(width / 108)
     if (newNumberOfDays >= 7 && width > 768) {
       setNumberOfDays(newNumberOfDays)
     } else {
-      setNumberOfDays(1)
+      setNumberOfDays(3)
     }
   }, [width])
 
@@ -51,13 +50,12 @@ export function HabitTable() {
     )
   } else {
     return (
-      <div className='flex flex-col items-center mx-auto mt-10 border border-gray-400 rounded-2xl w-fit'>
+      <div className='flex flex-col items-center w-auto mx-2 md:w-min md:mx-auto mt-10 border border-gray-400 rounded-2xl'>
         <div className='flex flex-col w-full px-14'>
           <TableHeader dateList={dateList} />
           <HabitTableBody dateList={dateList} />
         </div>
         <AddHabitRow />
-        {width}
       </div>
     )
   }

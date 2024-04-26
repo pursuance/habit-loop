@@ -73,14 +73,14 @@ export function HabitRow({ habit, dateList }: RowProps) {
         </Button>
       </div>
 
-      <div className='grow md:w-[280px]'>
+      <div className='grow w-1/4 min-w-[150px] md:w-[280px]'>
         {
           editable?
           <ChangeHabitNameField habit={habit} /> : name
         }
       </div>
 
-      <div className='flex grow'>
+      <div className='flex grow-0 md:grow'>
         <HabitSquares />
         <HabitOptions habit={habit} />
       </div>
