@@ -4,8 +4,8 @@ export function HabitLoopCodeBlock() {
 
   const text = 
   `
-    const habitLoop = (habits: DailyHabits[]) => { 
-      return habits.map((habit) => habit + (habit * 0.01))
+    const habitLoop = (dailyHabits) => { 
+      return dailyHabits.map((habit) => habit + (habit * 0.01))
     }
 
     //Get 1% Better Every Day!

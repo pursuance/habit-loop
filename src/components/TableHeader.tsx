@@ -14,7 +14,7 @@ export function TableHeader({ dateList }: Props) {
       <>
         {
           dateList.map((date, index) => 
-            <div className='check-column flex flex-col' key={index}>
+            <div className='w-[55px] md:w-[60px] items-center flex flex-col' key={index}>
               <div>{format(date, 'E')}</div>
               <div>{format(date, 'd')}</div>
             </div>
@@ -27,13 +27,13 @@ export function TableHeader({ dateList }: Props) {
   return (
     <div className='flex border-b py-2'>
 
-      <div className='name-column flex items-center'>
+      <div className='grow w-1/4 min-w-[150px] md:w-[280px] flex items-center'>
         <span className='font-semibold mr-auto'>Habit</span>
         <ReturnToTodayButton />
         <GoBackADayButton />
       </div>
       
-      <div className='flex items-center grow'> 
+      <div className='flex items-center grow-0 md:grow'> 
         <Dates />
         <GoForwardADayButton />
       </div>
