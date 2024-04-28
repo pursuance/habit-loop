@@ -14,7 +14,7 @@ export function TableHeader({ dateList }: Props) {
       <>
         {
           dateList.map((date, index) => 
-            <div className='check-column flex flex-col' key={index}>
+            <div className='w-[55px] md:w-[60px] items-center flex flex-col' key={index}>
               <div>{format(date, 'E')}</div>
               <div>{format(date, 'd')}</div>
             </div>

@@ -51,7 +51,7 @@ export function HabitRow({ habit, dateList }: RowProps) {
     }
 
     return (
-      <div className='check-column pl-[17px] flex'>
+      <div className='w-[55px] md:w-[60px] items-center pl-[17px] flex'>
         <Checkbox className='h-7 w-7 self-center' checked={isCompleted()} onCheckedChange={handleCheckedChange} />
       </div>
     )

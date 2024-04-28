@@ -51,7 +51,7 @@ export function HabitTable() {
   } else {
     return (
       <div className='flex flex-col items-center w-auto mx-2 md:w-min md:mx-auto mt-10 border border-gray-400 rounded-2xl'>
-        <div className='flex flex-col w-full px-14'>
+        <div className='flex flex-col w-full px-8 md:px-14'>
           <TableHeader dateList={dateList} />
           <HabitTableBody dateList={dateList} />
         </div>

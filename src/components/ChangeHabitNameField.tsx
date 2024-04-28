@@ -59,7 +59,7 @@ export function ChangeHabitNameField({ habit }: Props) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input id={id} placeholder="Enter habit name..." {...field} className="text-base px-2"/>
+                  <Input id={id} placeholder="Enter habit name..." {...field} className="text-base px-2 placeholder:text-xs md:placeholder:text-base"/>
                 </FormControl>
               </FormItem>
             )}

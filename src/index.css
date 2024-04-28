@@ -66,8 +66,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.check-column {
-  width: 60px;
-  align-items: center;
-}
