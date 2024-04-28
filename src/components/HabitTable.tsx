@@ -22,8 +22,10 @@ export function HabitTable() {
 
   useLayoutEffect(() => {
     const newNumberOfDays = Math.round(width / 108)
-    if (newNumberOfDays >= 7) {
+    if (newNumberOfDays >= 7 && width > 768) {
       setNumberOfDays(newNumberOfDays)
+    } else {
+      setNumberOfDays(3)
     }
   }, [width])
 
@@ -48,8 +50,8 @@ export function HabitTable() {
     )
   } else {
     return (
-      <div className='flex flex-col items-center mx-auto mt-10 border border-gray-400 rounded-2xl w-fit'>
-        <div className='flex flex-col w-full px-14'>
+      <div className='flex flex-col items-center w-auto mx-2 md:w-min md:mx-auto mt-10 border border-gray-400 rounded-2xl'>
+        <div className='flex flex-col w-full px-8 md:px-14'>
           <TableHeader dateList={dateList} />
           <HabitTableBody dateList={dateList} />
         </div>
