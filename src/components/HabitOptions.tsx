@@ -5,9 +5,21 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import { MoreVertical, Trash, Pencil } from "lucide-react"
+import { MoreVertical, Pencil } from "lucide-react"
 import { useHabitStore } from "@/zustandStores/HabitStore"
+import { Trash } from "lucide-react"
 
 interface Props {
   habit: Habit;
@@ -34,7 +46,7 @@ export function HabitOptions({ habit }: Props) {
   }
 
   return (
-    <div>
+    <AlertDialog>
       <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="h-8 w-8 p-0">
@@ -50,14 +62,30 @@ export function HabitOptions({ habit }: Props) {
           </span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => deleteHabit(id)} className="cursor-pointer">
+        <DropdownMenuItem className="cursor-pointer">
+        <AlertDialogTrigger asChild>
           <span className="text-red-700 flex items-center">
             <Trash className="red h-4 w-4 mr-1"/>
             <span className="text-gray-300 mr-1">|</span> Delete
           </span>
+        </AlertDialogTrigger>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  </div>
+    <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure you want to delete this Habit?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. 
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction asChild={true}>
+            <Button className="bg-red-700 hover:bg-red-900" onClick={() => deleteHabit(id)}>Delete</Button>
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+  </AlertDialog>
   )
 }
