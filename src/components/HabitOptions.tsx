@@ -48,44 +48,44 @@ export function HabitOptions({ habit }: Props) {
   return (
     <AlertDialog>
       <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
-          <span className="sr-only">Open menu</span>
-          <MoreVertical className="h-4 w-4" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-      <DropdownMenuItem onClick={makeEditable} className="cursor-pointer">
-          <span className="flex items-center">
-            <Pencil className="h-4 w-4 mr-1"/>
-            <span className="text-gray-300 mr-1">|</span> Rename
-          </span>
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem className="cursor-pointer">
-        <AlertDialogTrigger asChild>
-          <span className="text-red-700 flex items-center">
-            <Trash className="red h-4 w-4 mr-1"/>
-            <span className="text-gray-300 mr-1">|</span> Delete
-          </span>
-        </AlertDialogTrigger>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-    <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure you want to delete this Habit?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. 
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction asChild={true}>
-            <Button className="bg-red-700 hover:bg-red-900" onClick={() => deleteHabit(id)}>Delete</Button>
-          </AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-  </AlertDialog>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className="h-8 w-8 p-0">
+            <span className="sr-only">Open menu</span>
+            <MoreVertical className="h-4 w-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+        <DropdownMenuItem onClick={makeEditable} className="cursor-pointer">
+            <span className="flex items-center">
+              <Pencil className="h-4 w-4 mr-1"/>
+              <span className="text-gray-300 mr-1">|</span> Rename
+            </span>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="cursor-pointer">
+          <AlertDialogTrigger asChild>
+            <span className="text-red-700 flex items-center">
+              <Trash className="red h-4 w-4 mr-1"/>
+              <span className="text-gray-300 mr-1">|</span> Delete
+            </span>
+          </AlertDialogTrigger>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <AlertDialogContent className="">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure you want to delete this Habit?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. 
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction asChild={true}>
+              <Button className="bg-red-700 hover:bg-red-900" onClick={() => deleteHabit(id)}>Delete</Button>
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+    </AlertDialog>
   )
 }
