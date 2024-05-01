@@ -80,9 +80,9 @@ export function HabitOptions({ habit }: Props) {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="w-5/6 md:w-fit">Cancel</AlertDialogCancel>
             <AlertDialogAction asChild={true}>
-              <Button className="bg-red-700 hover:bg-red-900" onClick={() => deleteHabit(id)}>Delete</Button>
+              <Button className="bg-red-700 hover:bg-red-900 text-white w-5/6 md:w-fit" onClick={() => deleteHabit(id)}>Delete</Button>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
