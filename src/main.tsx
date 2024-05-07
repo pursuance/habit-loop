@@ -1,9 +1,9 @@
-import React, { Children } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { 
   createBrowserRouter,
-  RouterProvider
+  RouterProvider,
 } from 'react-router-dom'
 import { App } from '@/routes/App.tsx'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <HabitTable />
       },
       {
-        path: 'habits/:habitId',
+        path: '/:habitName',
         element: <CalendarHeatMap />
       } 
     ]

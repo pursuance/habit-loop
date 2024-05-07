@@ -1,13 +1,12 @@
 import HeatMap from '@uiw/react-heat-map';
 import { format, subDays } from 'date-fns'
+import { useLocation } from 'react-router-dom';
 
-interface Props {
-  habit: Habit;
-}
+export function CalendarHeatMap() {
 
-export function CalendarHeatMap({ habit }: Props) {
+  const { state: { habit } = {} } = useLocation()
 
-  const values = habit.datesCompleted.map((date) => {
+  const values = habit.datesCompleted.map((date: Date) => {
     const formattedDate = format(date, 'yyyy/MM/d')
     return ({ date: formattedDate, count: 1 })
   })
