@@ -1,19 +1,11 @@
 import HeatMap from '@uiw/react-heat-map';
 import { format, subDays } from 'date-fns'
-import { useLocation } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 
+interface Props {
+  habit: Habit;
+}
 
-export function CalendarHeatMap() {
-
-  const { state: { habit } = {} } = useLocation()
+export function CalendarHeatMap({ habit }: Props) {
 
   const values = habit.datesCompleted.map((date: Date) => {
     const formattedDate = format(date, 'yyyy/MM/d')
@@ -23,14 +15,11 @@ export function CalendarHeatMap() {
   const startDate = subDays(new Date(), 90)
 
   return (
-    <div className='flex justify-center'>
-      <Card className='w-min px-6 py-4 mt-10'>
-        <HeatMap 
-          value={values}
-          weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
-          startDate={startDate}
-        />
-      </Card>
-    </div>
+    <HeatMap 
+      value={values}
+      weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
+      startDate={startDate}
+      legendCellSize={0}
+    />
   )
 }

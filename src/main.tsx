@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom'
 import { App } from '@/routes/App.tsx'
 import { ThemeProvider } from '@/components/theme-provider.tsx'
-import { CalendarHeatMap } from '@/components/CalendarHeatMap'
 import { HabitTable } from '@/components/HabitTable'
+import { StatsPage } from '@/routes/StatsPage'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:habitName',
-        element: <CalendarHeatMap />
+        element: <StatsPage />
       } 
     ]
   }
