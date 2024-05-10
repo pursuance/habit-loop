@@ -15,11 +15,14 @@ export function CalendarHeatMap({ habit }: Props) {
   const startDate = subDays(new Date(), 90)
 
   return (
-    <HeatMap 
-      value={values}
-      weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
-      startDate={startDate}
-      legendCellSize={0}
-    />
+    <div className='h-auto'>
+      <HeatMap
+        rectSize={16}
+        value={values}
+        weekLabels={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
+        startDate={startDate}
+        legendCellSize={0}
+      />
+    </div>
   )
 }
