@@ -19,7 +19,7 @@ export function StatsPage() {
   return (
     <div className='flex justify-center'>
       <Card className='px-6 py-4 mt-10 align-middle relative'>
-        <Link to='/' className="absolute left-2">
+        <Link to='/' className="absolute left-2 top-3.5">
           <ChevronLeft className="h-8 w-8" />
         </Link>
         <CardTitle className="pl-6">
