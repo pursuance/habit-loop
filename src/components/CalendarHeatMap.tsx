@@ -1,4 +1,4 @@
-import { subDays, addDays, compareAsc, format } from 'date-fns'
+import { subDays, addDays, compareAsc, format, isSameDay } from 'date-fns'
 
 interface Props {
   habit: Habit;
@@ -72,10 +72,18 @@ const DateColumns = ({ numberOfColumns, dates, datesCompleted }: {numberOfColumn
 }
 
 const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] }) => {
+
+  const isCompleted = () => {
+    for (const dateCompleted of datesCompleted) {
+      if (isSameDay(dateCompleted, date)) return true
+    }
+    return false
+  }
+
   return (
     <>
-      {datesCompleted?.includes(date) ?
-        <div className='border-2 border-solid h-4 w-4 rounded bg-black'>{date.toString()}</div>
+      {isCompleted() ?
+        <div className='border-2 border-solid h-4 w-4 rounded bg-black'>{format(date, 'MM/dd')}</div>
         :
         <div className='border-2 border-solid h-4 w-auto rounded'>{format(date, 'MM/dd')}</div>
       }
