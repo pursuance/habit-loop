@@ -1,4 +1,4 @@
-import { subDays, addDays, compareAsc, format, isSameDay } from 'date-fns'
+import { subDays, addDays, compareAsc, isSameDay, getDay } from 'date-fns'
 
 interface Props {
   habit: Habit;
@@ -20,14 +20,14 @@ export function CalendarHeatMap({ habit }: Props) {
 
 const getDateArray = () => {
   const today = new Date()
-  let date = subDays(today, 98)
+  const dayOfTheWeek = getDay(today)
+  let date = subDays(today, 92 + dayOfTheWeek)
   const dates: Date[] = new Array()
 
   while(compareAsc(date, today) === -1) {
-    dates.push(date)
     date = addDays(date, 1)
+    dates.push(date)
   }
-
   return dates
 }
 
@@ -36,6 +36,7 @@ const DaysOfTheWeek = () => {
 
   return (
     <div className='flex flex-col text-right'>
+      <div className='h-4'></div>
       {
         daysOfTheWeek.map((dayOfTheWeek, index) => {
           return (
@@ -51,11 +52,20 @@ const DaysOfTheWeek = () => {
 
 const DateColumn = ({ columnNumber, dates, datesCompleted }: {columnNumber: number, dates: Date[], datesCompleted: Date[]}) => {
 
-  const dateBoxes = new Array(7).fill(undefined).map((_, index) => <DateBox key={index} date={dates[index + (7 * columnNumber)]} datesCompleted={datesCompleted}/>)
+  const dateBoxes = new Array(7).fill(undefined).map((_, index) => {
+  const dateIndex = index + (7 * columnNumber)
+
+  if (dates[dateIndex]){
+    return (
+      <DateBox key={index} date={dates[dateIndex]} datesCompleted={datesCompleted}/>
+    )
+  }
+  })
 
   return (
     <div className='flex flex-col'>
-      {columnNumber}{dateBoxes}
+      {columnNumber}
+      {dateBoxes}
     </div>
   )
 }
@@ -83,9 +93,9 @@ const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] 
   return (
     <>
       {isCompleted() ?
-        <div className='border-2 border-solid h-4 w-4 rounded bg-black'>{format(date, 'MM/dd')}</div>
+        <div className='border-2 border-solid h-4 w-4 rounded bg-black'></div>
         :
-        <div className='border-2 border-solid h-4 w-auto rounded'>{format(date, 'MM/dd')}</div>
+        <div className='border-2 border-solid h-4 w-4 rounded'></div>
       }
     </>      
   )
