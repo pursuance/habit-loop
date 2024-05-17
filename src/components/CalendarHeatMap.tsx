@@ -1,4 +1,4 @@
-import { subDays, addDays, compareAsc, isSameDay, getDay } from 'date-fns'
+import { subDays, addDays, compareAsc, isSameDay, getDay, isFirstDayOfMonth, format } from 'date-fns'
 
 interface Props {
   habit: Habit;
@@ -52,19 +52,34 @@ const DaysOfTheWeek = () => {
 
 const DateColumn = ({ columnNumber, dates, datesCompleted }: {columnNumber: number, dates: Date[], datesCompleted: Date[]}) => {
 
-  const dateBoxes = new Array(7).fill(undefined).map((_, index) => {
-  const dateIndex = index + (7 * columnNumber)
+  let containsFirstOfMonth = false
 
-  if (dates[dateIndex]){
-    return (
-      <DateBox key={index} date={dates[dateIndex]} datesCompleted={datesCompleted}/>
-    )
-  }
+  const dateBoxes = new Array(7).fill(undefined).map((_, index) => {
+    const dateIndex = index + (7 * columnNumber)
+    
+    if (isFirstDayOfMonth(dates[dateIndex])) {
+      containsFirstOfMonth = true
+    }
+
+    if (dates[dateIndex]){
+      return (
+        <DateBox key={index} date={dates[dateIndex]} datesCompleted={datesCompleted}/>
+      )
+    }
   })
 
   return (
     <div className='flex flex-col'>
-      {columnNumber}
+      {
+        containsFirstOfMonth ? 
+        <div>
+          {
+            format(dates[6 + (7 * columnNumber)], 'MMM')
+          }
+        </div>
+        :
+        <div className='h-4'></div>
+      }
       {dateBoxes}
     </div>
   )
@@ -93,9 +108,13 @@ const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] 
   return (
     <>
       {isCompleted() ?
-        <div className='border-2 border-solid h-4 w-4 rounded bg-black'></div>
+        <div className='border-2 border-solid h-4 w-4 rounded bg-black text-sm'>
+          {format(date, "d")}
+        </div>
         :
-        <div className='border-2 border-solid h-4 w-4 rounded'></div>
+        <div className='border-2 border-solid h-4 w-4 rounded text-sm'>
+          {format(date, "d")}
+        </div>
       }
     </>      
   )
