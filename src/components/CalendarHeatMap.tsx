@@ -70,16 +70,11 @@ const DateColumn = ({ columnNumber, dates, datesCompleted }: {columnNumber: numb
 
   return (
     <div className='flex flex-col'>
-      {
-        containsFirstOfMonth ? 
-        <div>
-          {
-            format(dates[6 + (7 * columnNumber)], 'MMM')
-          }
-        </div>
-        :
-        <div className='h-4'></div>
-      }
+      <div className='h-5  w-4'>
+        {
+          containsFirstOfMonth && format(dates[6 + (7 * columnNumber)], 'MMM')
+        }
+      </div>
       {dateBoxes}
     </div>
   )
@@ -108,11 +103,11 @@ const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] 
   return (
     <>
       {isCompleted() ?
-        <div className='border-2 border-solid h-4 w-4 rounded bg-black text-sm'>
+        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded text-[10px] bg-black'>
           {format(date, "d")}
         </div>
         :
-        <div className='border-2 border-solid h-4 w-4 rounded text-sm'>
+        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded align-middle text-[10px]'>
           {format(date, "d")}
         </div>
       }
