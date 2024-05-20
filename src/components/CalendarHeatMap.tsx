@@ -35,12 +35,12 @@ const DaysOfTheWeek = () => {
   const daysOfTheWeek = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
 
   return (
-    <div className='flex flex-col text-right'>
-      <div className='h-4'></div>
+    <div className='flex flex-col text-right mr-1'>
+      <div className='h-6 mb-0.5'></div>
       {
         daysOfTheWeek.map((dayOfTheWeek, index) => {
           return (
-            <div key={index} className='h-4 text-sm'>
+            <div key={index} className='h-6 mb-0.5'>
               {dayOfTheWeek}
             </div>
           )
@@ -69,8 +69,8 @@ const DateColumn = ({ columnNumber, dates, datesCompleted }: {columnNumber: numb
   })
 
   return (
-    <div className='flex flex-col '>
-      <div className='h-5  w-4 text-sm'>
+    <div className='flex flex-col gap-0.5 mr-0.5'>
+      <div className='h-5 w-4 mb-1'>
         {
           containsFirstOfMonth && format(dates[6 + (7 * columnNumber)], 'MMM')
         }
@@ -103,12 +103,12 @@ const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] 
   return (
     <>
       {isCompleted() ?
-        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded text-[10px] cursor-default bg-[#0f172a] text-white'>
-          {format(date, "d")}
+        <div className='h-6 w-6 flex justify-center items-center rounded text-sm cursor-default bg-lime-700 text-white'>
+          {format(date, 'd')}
         </div>
         :
-        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded align-middle text-[10px] cursor-default'>
-          {format(date, "d")}
+        <div className='h-6 w-6 flex justify-center items-center rounded text-sm cursor-default bg-slate-400 text-white'>
+          {format(date, 'd')}
         </div>
       }
     </>      
