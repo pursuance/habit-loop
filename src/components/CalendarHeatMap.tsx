@@ -40,7 +40,7 @@ const DaysOfTheWeek = () => {
       {
         daysOfTheWeek.map((dayOfTheWeek, index) => {
           return (
-            <div key={index} className='h-4'>
+            <div key={index} className='h-4 text-sm'>
               {dayOfTheWeek}
             </div>
           )
@@ -69,8 +69,8 @@ const DateColumn = ({ columnNumber, dates, datesCompleted }: {columnNumber: numb
   })
 
   return (
-    <div className='flex flex-col'>
-      <div className='h-5  w-4'>
+    <div className='flex flex-col '>
+      <div className='h-5  w-4 text-sm'>
         {
           containsFirstOfMonth && format(dates[6 + (7 * columnNumber)], 'MMM')
         }
@@ -103,11 +103,11 @@ const DateBox = ({ date, datesCompleted }: { date: Date, datesCompleted: Date[] 
   return (
     <>
       {isCompleted() ?
-        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded text-[10px] bg-black'>
+        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded text-[10px] cursor-default bg-[#0f172a] text-white'>
           {format(date, "d")}
         </div>
         :
-        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded align-middle text-[10px]'>
+        <div className='border-2 border-solid h-4 w-4 flex justify-center items-center rounded align-middle text-[10px] cursor-default'>
           {format(date, "d")}
         </div>
       }
