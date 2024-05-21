@@ -1,4 +1,4 @@
-import { CalendarHeatMap } from "@/components/CalendarHeatMap";
+import { CalendarHeatMap } from "@/components/HeatMap/CalendarHeatMap";
 import { Link, useLocation } from 'react-router-dom';
 import {
   Card,
