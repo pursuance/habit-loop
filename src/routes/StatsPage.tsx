@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ChevronLeft } from "lucide-react";
+import { CurrentStreak } from "@/components/HeatMap/CurrentStreak";
 
 export function StatsPage() {
 
@@ -26,7 +27,8 @@ export function StatsPage() {
           {name}
         </CardTitle>
         <CardContent>
-          <CalendarHeatMap habit={habit}/>
+          <CalendarHeatMap habit={habit} />
+          <CurrentStreak habit={habit} />
         </CardContent>
       </Card>
     </div>

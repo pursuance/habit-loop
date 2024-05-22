@@ -1,4 +1,4 @@
-import { getDay, subDays, addDays, compareAsc } from 'date-fns'
+import { getDay, subDays, addDays, compareAsc, isSameDay } from 'date-fns'
 
 export const getDateArray = () => {
     const today = new Date()
@@ -12,3 +12,27 @@ export const getDateArray = () => {
     }
     return dates
   }
+
+export const getCurrentStreak = (datesCompleted: Date[]) => {
+  let date = subDays(new Date(), 1)
+  let streak = 0
+
+  const isCompleted = (date: Date) => {
+    for (const dateCompleted of datesCompleted) {
+      if (isSameDay(dateCompleted, date)) return true
+    }
+    return false
+  }
+  
+  if (isCompleted(new Date())) {
+    streak += 1;
+  }
+
+  while (isCompleted(date)) {
+    streak += 1
+    date = subDays(date, 1)
+  }
+
+  return streak
+}
+
