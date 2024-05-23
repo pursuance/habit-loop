@@ -1,4 +1,4 @@
-import { getCurrentStreak } from "./utils";
+import { getStreaks } from "./utils";
 
 interface Props {
   habit: Habit;
@@ -8,11 +8,11 @@ export const CurrentStreak = ({ habit }: Props) => {
 
   const { datesCompleted } = habit
 
-  const streak = getCurrentStreak(datesCompleted)
+  const streaks = getStreaks(datesCompleted)
 
   return (
     <h1>
-      {streak}
+      {streaks[2]}
     </h1>
   )
 }

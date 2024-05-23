@@ -1,38 +1,32 @@
 import { getDay, subDays, addDays, compareAsc, isSameDay } from 'date-fns'
 
 export const getDateArray = () => {
-    const today = new Date()
-    const dayOfTheWeek = getDay(today)
-    let date = subDays(today, 92 + dayOfTheWeek)
-    const dates: Date[] = new Array()
-  
-    while(compareAsc(date, today) === -1) {
-      date = addDays(date, 1)
-      dates.push(date)
-    }
-    return dates
-  }
+  const today = new Date()
+  const dayOfTheWeek = getDay(today)
+  let date = subDays(today, 92 + dayOfTheWeek)
+  const dates: Date[] = new Array()
 
-export const getCurrentStreak = (datesCompleted: Date[]) => {
-  let date = subDays(new Date(), 1)
-  let streak = 0
-
-  const isCompleted = (date: Date) => {
-    for (const dateCompleted of datesCompleted) {
-      if (isSameDay(dateCompleted, date)) return true
-    }
-    return false
+  while(compareAsc(date, today) === -1) {
+    date = addDays(date, 1)
+    dates.push(date)
   }
-  
-  if (isCompleted(new Date())) {
-    streak += 1;
-  }
-
-  while (isCompleted(date)) {
-    streak += 1
-    date = subDays(date, 1)
-  }
-
-  return streak
+  return dates
 }
 
+export const getStreaks = (datesCompleted: Date[]) => {
+
+  let streak = 1
+  let streaks = []
+  datesCompleted = datesCompleted.sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
+
+  for (let i = 0; i < datesCompleted.length; i++) {
+    if (isSameDay(subDays(datesCompleted[i], 1), datesCompleted[i + 1])) {
+      streak += 1
+    } else {
+      streaks.push(streak)
+      streak = 1
+    }
+  }
+
+  return streaks.filter(streak => streak > 1)
+}

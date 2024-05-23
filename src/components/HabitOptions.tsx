@@ -17,7 +17,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
-import { MoreVertical, Pencil } from "lucide-react"
+import { BarChartBig, MoreVertical, Pencil } from "lucide-react"
 import { useHabitStore } from "@/zustandStores/HabitStore"
 import { Trash } from "lucide-react"
 import { Link } from 'react-router-dom'
@@ -65,7 +65,7 @@ export function HabitOptions({ habit }: Props) {
           <DropdownMenuItem className="cursor-pointer">
             <Link to={habit.name} state={{ habit }} >
               <span className="flex items-center">
-                <Pencil className="h-4 w-4 mr-1"/>
+                <BarChartBig className="h-4 w-4 mr-1"/>
                 <span className="text-gray-300 mr-1">|</span> Stats
               </span>
             </Link>
