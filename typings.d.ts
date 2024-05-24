@@ -20,3 +20,9 @@ interface HabitsState {
   updateHabit: (updatedHabit: Habit) => void;
   addHabit: () => void;
 }
+
+interface Streak {
+  length: number;
+  startDate: Date;
+  endDate: Date;
+}

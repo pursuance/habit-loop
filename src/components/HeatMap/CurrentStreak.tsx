@@ -1,4 +1,5 @@
 import { getStreaks } from "./utils";
+import { format } from 'date-fns'
 
 interface Props {
   habit: Habit;
@@ -12,7 +13,10 @@ export const CurrentStreak = ({ habit }: Props) => {
 
   return (
     <h1>
-      {streaks[2]}
+      {
+        streaks?.map(streak => <p>{streak.length}, 
+        {format(streak.startDate, 'MM/dd')} - {format(streak.endDate, 'MM/dd')}</p>)
+      }
     </h1>
   )
 }
