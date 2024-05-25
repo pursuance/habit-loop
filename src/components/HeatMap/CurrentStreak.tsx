@@ -15,7 +15,10 @@ export const CurrentStreak = ({ habit }: Props) => {
     <h1>
       {
         streaks?.map(streak => <p>{streak.length}, 
-        {format(streak.startDate, 'MM/dd')} - {format(streak.endDate, 'MM/dd')}</p>)
+        {format(streak.startDate, 'MM/dd')} - {format(streak.endDate, 'MM/dd')}
+        {streak.isCurrent && <p>true</p>}
+        </p>)
+        
       }
     </h1>
   )

@@ -25,4 +25,5 @@ interface Streak {
   length: number;
   startDate: Date;
   endDate: Date;
+  isCurrent?: boolean;
 }

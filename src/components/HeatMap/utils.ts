@@ -27,8 +27,11 @@ export const getStreaks = (datesCompleted: Date[]) => {
     } else {
       streak.startDate = datesCompleted[i]
       streak.endDate = addDays(datesCompleted[i], streak.length - 1)
+      if (isSameDay(new Date(), streak.endDate) || isSameDay(subDays(new Date(), 1), streak.endDate)) {
+        streak.isCurrent = true
+      }
       streaks.push(streak)
-      streak = {...streak, length: 1}
+      streak = {...streak, length: 1, isCurrent: false}
     }
   }
 
