@@ -3,13 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { ChevronLeft } from "lucide-react";
 import { CurrentStreak } from "@/components/HeatMap/CurrentStreak";
+import { LongestStreak } from "@/components/HeatMap/LongestStreak";
 
 export function StatsPage() {
 
@@ -29,6 +27,7 @@ export function StatsPage() {
         <CardContent>
           <CalendarHeatMap habit={habit} />
           <CurrentStreak habit={habit} />
+          <LongestStreak habit={habit} />
         </CardContent>
       </Card>
     </div>
