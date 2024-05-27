@@ -35,5 +35,5 @@ export const getStreaks = (datesCompleted: Date[]) => {
     }
   }
 
-  return streaks.filter(streak => streak.length > 1)
+  return streaks
 }
