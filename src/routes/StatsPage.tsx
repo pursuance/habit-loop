@@ -26,8 +26,10 @@ export function StatsPage() {
         </CardTitle>
         <CardContent>
           <CalendarHeatMap habit={habit} />
-          <CurrentStreak habit={habit} />
-          <LongestStreak habit={habit} />
+          <div className="flex justify-between px-9 mt-5">
+            <CurrentStreak habit={habit} />
+            <LongestStreak habit={habit} />
+          </div>
         </CardContent>
       </Card>
     </div>
