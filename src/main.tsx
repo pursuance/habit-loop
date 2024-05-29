@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <HabitTable />
       },
       {
-        path: '/:habitName',
+        path: '/stats',
         element: <StatsPage />
       } 
     ]

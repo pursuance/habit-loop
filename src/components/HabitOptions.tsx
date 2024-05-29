@@ -63,7 +63,7 @@ export function HabitOptions({ habit }: Props) {
             </span>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer">
-            <Link to={habit.name} state={{ habit }} >
+            <Link to={'stats'} state={{ habit }} >
               <span className="flex items-center">
                 <BarChartBig className="h-4 w-4 mr-1"/>
                 <span className="text-gray-300 mr-1">|</span> Stats
